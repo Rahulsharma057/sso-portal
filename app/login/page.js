@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+
 import {
   Box,
   Paper,
@@ -88,17 +89,16 @@ export default function LoginPage() {
       sx={{
         minHeight: "100vh",
         width: "100%",
-        position: "relative",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        position: "relative",
         overflow: "hidden",
 
-        // Background image
         backgroundImage: `
           linear-gradient(
-            rgba(8, 25, 48, 0.62),
-            rgba(8, 25, 48, 0.72)
+            rgba(8, 25, 48, 0.58),
+            rgba(8, 25, 48, 0.68)
           ),
           url("/images/login-bg.png")
         `,
@@ -106,17 +106,17 @@ export default function LoginPage() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
 
-        px: { xs: 2, sm: 3 },
-        py: { xs: 3, sm: 4 },
+        px: { xs: 1.5, sm: 2 },
+        py: { xs: 2, sm: 3 },
       }}
     >
-      {/* Background decorative overlay */}
+      {/* Soft Overlay */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 35%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08), transparent 35%)",
+            "radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 60%)",
           pointerEvents: "none",
         }}
       />
@@ -126,44 +126,43 @@ export default function LoginPage() {
         elevation={0}
         sx={{
           position: "relative",
-          zIndex: 2,
+          zIndex: 1,
 
           width: "100%",
-          maxWidth: 440,
+          maxWidth: 390,
 
           p: {
-            xs: 3,
-            sm: 4,
+            xs: 2.25,
+            sm: 3,
           },
 
-          borderRadius: 3,
+          borderRadius: 2.5,
 
-          backgroundColor: "rgba(255, 255, 255, 0.97)",
+          backgroundColor: "rgba(255,255,255,0.97)",
 
-          border: "1px solid rgba(255,255,255,0.8)",
+          border: "1px solid rgba(255,255,255,0.85)",
 
           boxShadow:
-            "0 24px 70px rgba(0, 0, 0, 0.28)",
+            "0 18px 50px rgba(0,0,0,0.25)",
 
-          backdropFilter: "blur(10px)",
+          backdropFilter: "blur(8px)",
         }}
       >
-        {/* Organization Header */}
+        {/* Organization */}
         <Box
           sx={{
             textAlign: "center",
-            mb: 3,
+            mb: 2,
           }}
         >
           <Typography
             sx={{
               fontSize: {
-                xs: 24,
-                sm: 28,
+                xs: 21,
+                sm: 24,
               },
               fontWeight: 900,
               color: "#163A63",
-              letterSpacing: "-0.5px",
               lineHeight: 1.2,
             }}
           >
@@ -172,14 +171,13 @@ export default function LoginPage() {
 
           <Typography
             sx={{
-              mt: 0.5,
+              mt: 0.35,
               fontSize: {
-                xs: 14,
-                sm: 15,
+                xs: 12.5,
+                sm: 13.5,
               },
               fontWeight: 700,
-              color: "#6A7480",
-              letterSpacing: "0.3px",
+              color: "#667085",
             }}
           >
             Skill Development Centre
@@ -187,53 +185,56 @@ export default function LoginPage() {
 
           <Divider
             sx={{
-              mt: 2,
+              width: 60,
               mx: "auto",
-              width: 80,
+              mt: 1.25,
               borderColor: "#DCE3EA",
             }}
           />
         </Box>
 
-        {/* Login Icon */}
+        {/* Login Heading */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            mb: 2.5,
+            mb: 1.75,
           }}
         >
           <Avatar
             sx={{
-              width: 62,
-              height: 62,
+              width: 50,
+              height: 50,
               bgcolor: "#163A63",
-              mb: 1.5,
+              mb: 1,
+
               boxShadow:
-                "0 8px 22px rgba(22, 58, 99, 0.25)",
+                "0 6px 18px rgba(22,58,99,0.25)",
             }}
           >
-            <LockOutlinedIcon fontSize="medium" />
+            <LockOutlinedIcon fontSize="small" />
           </Avatar>
 
           <Typography
-            variant="h5"
             sx={{
+              fontSize: {
+                xs: 20,
+                sm: 22,
+              },
               fontWeight: 800,
               color: "#1D2939",
-              textAlign: "center",
+              lineHeight: 1.2,
             }}
           >
             Welcome Back
           </Typography>
 
           <Typography
-            variant="body2"
             sx={{
-              mt: 0.5,
+              mt: 0.35,
+              fontSize: 12.5,
               color: "#667085",
-              textAlign: "center",
             }}
           >
             Sign in to access your portal
@@ -245,28 +246,31 @@ export default function LoginPage() {
           <Alert
             severity="error"
             sx={{
-              mb: 2,
-              borderRadius: 1.5,
+              mb: 1.5,
+              py: 0.25,
+              borderRadius: 1.25,
+              fontSize: 13,
             }}
           >
             {error}
           </Alert>
         )}
 
-        {/* Login Form */}
+        {/* Form */}
         <Box component="form" onSubmit={handleSubmit}>
           <TextField
             label="Email"
             type="email"
             fullWidth
             required
-            margin="normal"
+            size="small"
+            margin="dense"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
             sx={{
               "& .MuiOutlinedInput-root": {
-                borderRadius: 1.5,
+                borderRadius: 1.25,
                 backgroundColor: "#FAFBFC",
               },
             }}
@@ -277,13 +281,14 @@ export default function LoginPage() {
             type={showPassword ? "text" : "password"}
             fullWidth
             required
-            margin="normal"
+            size="small"
+            margin="dense"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
             sx={{
               "& .MuiOutlinedInput-root": {
-                borderRadius: 1.5,
+                borderRadius: 1.25,
                 backgroundColor: "#FAFBFC",
               },
             }}
@@ -291,6 +296,7 @@ export default function LoginPage() {
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
+                    size="small"
                     onClick={() =>
                       setShowPassword((s) => !s)
                     }
@@ -302,9 +308,9 @@ export default function LoginPage() {
                     }
                   >
                     {showPassword ? (
-                      <VisibilityOffIcon />
+                      <VisibilityOffIcon fontSize="small" />
                     ) : (
-                      <VisibilityIcon />
+                      <VisibilityIcon fontSize="small" />
                     )}
                   </IconButton>
                 </InputAdornment>
@@ -316,15 +322,15 @@ export default function LoginPage() {
             type="submit"
             fullWidth
             variant="contained"
-            size="large"
+            size="medium"
             disabled={loading}
             sx={{
-              mt: 3,
-              py: 1.35,
+              mt: 2,
+              py: 1.05,
 
-              borderRadius: 1.5,
+              borderRadius: 1.25,
 
-              fontSize: 15,
+              fontSize: 14,
               fontWeight: 800,
 
               textTransform: "none",
@@ -332,12 +338,10 @@ export default function LoginPage() {
               backgroundColor: "#163A63",
 
               boxShadow:
-                "0 8px 20px rgba(22, 58, 99, 0.25)",
+                "0 6px 16px rgba(22,58,99,0.22)",
 
               "&:hover": {
                 backgroundColor: "#0F2D4D",
-                boxShadow:
-                  "0 10px 24px rgba(22, 58, 99, 0.32)",
               },
 
               "&.Mui-disabled": {
@@ -350,38 +354,35 @@ export default function LoginPage() {
           </Button>
         </Box>
 
-        {/* Footer Information */}
+        {/* Footer */}
         <Box
           sx={{
-            mt: 3,
+            mt: 2,
             textAlign: "center",
           }}
         >
           <Typography
-            variant="caption"
             sx={{
-              display: "block",
+              fontSize: 11.5,
               color: "#667085",
-              lineHeight: 1.6,
-            }}
-          >
-            One login for Exam ERP and
-            <br />
-            Task &amp; Report Management
-          </Typography>
-
-          <Typography
-            variant="caption"
-            sx={{
-              display: "block",
-              mt: 1.5,
-              color: "#98A2B3",
               lineHeight: 1.5,
             }}
           >
-            Only have access to one system?
+            One login for Exam ERP and Task &amp; Report
+            Management
+          </Typography>
+
+          <Typography
+            sx={{
+              mt: 0.75,
+              fontSize: 10.5,
+              color: "#98A2B3",
+              lineHeight: 1.4,
+            }}
+          >
+            If you have access to only one system,
             <br />
-            You&apos;ll be taken straight there.
+            you&apos;ll be taken there automatically.
           </Typography>
         </Box>
       </Paper>
