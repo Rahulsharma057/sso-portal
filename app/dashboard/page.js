@@ -85,7 +85,7 @@ export default function DashboardPage() {
           bgcolor: "#f6f8fc",
         }}
       >
-        <CircularProgress />
+        <CircularProgress size={28} />
       </Box>
     );
   }
@@ -97,8 +97,8 @@ export default function DashboardPage() {
       title: "Exam ERP",
       subtitle: "Assessment & Academic Management",
       description:
-        "Manage weekly assessments, examinations, results, student performance and academic reports from one place.",
-      icon: <AssessmentIcon sx={{ fontSize: 34 }} />,
+        "Manage weekly assessments, examinations, results and student performance from one place.",
+      icon: <AssessmentIcon sx={{ fontSize: 26 }} />,
       avatarBg: "#e8f0ff",
       avatarColor: "#2563eb",
       accent: "#2563eb",
@@ -110,8 +110,8 @@ export default function DashboardPage() {
       title: "Task & Report Management",
       subtitle: "Daily Operations & Reporting",
       description:
-        "Manage daily inspection checklists, tasks, reports and operational activities efficiently.",
-      icon: <ChecklistIcon sx={{ fontSize: 34 }} />,
+        "Manage daily inspection checklists, tasks, reports and operational activities.",
+      icon: <ChecklistIcon sx={{ fontSize: 26 }} />,
       avatarBg: "#fff0f0",
       avatarColor: "#dc2626",
       accent: "#dc2626",
@@ -130,26 +130,26 @@ export default function DashboardPage() {
         "&::before": {
           content: '""',
           position: "absolute",
-          width: 420,
-          height: 420,
+          width: 320,
+          height: 320,
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(37,99,235,0.10) 0%, rgba(37,99,235,0) 70%)",
-          top: -180,
-          right: -120,
+          top: -140,
+          right: -100,
           pointerEvents: "none",
         },
 
         "&::after": {
           content: '""',
           position: "absolute",
-          width: 350,
-          height: 350,
+          width: 260,
+          height: 260,
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(220,38,38,0.07) 0%, rgba(220,38,38,0) 70%)",
-          bottom: -160,
-          left: -120,
+          bottom: -120,
+          left: -100,
           pointerEvents: "none",
         },
       }}
@@ -159,7 +159,7 @@ export default function DashboardPage() {
         sx={{
           position: "relative",
           zIndex: 1,
-          py: { xs: 2, sm: 3, md: 5 },
+          py: { xs: 1.5, sm: 2, md: 3 },
         }}
       >
         {/* =====================================================
@@ -168,10 +168,10 @@ export default function DashboardPage() {
         <Paper
           elevation={0}
           sx={{
-            px: { xs: 2, sm: 3, md: 4 },
-            py: 2,
-            mb: { xs: 4, md: 6 },
-            borderRadius: 3,
+            px: { xs: 1.5, sm: 2, md: 2.5 },
+            py: 1.25,
+            mb: { xs: 2.5, md: 3 },
+            borderRadius: 2.5,
             border: "1px solid #e5e7eb",
             bgcolor: "rgba(255,255,255,0.92)",
             backdropFilter: "blur(10px)",
@@ -181,25 +181,25 @@ export default function DashboardPage() {
             direction="row"
             alignItems="center"
             justifyContent="space-between"
-            gap={2}
+            gap={1.5}
           >
             {/* Logo / Brand */}
-            <Stack direction="row" alignItems="center" spacing={1.5}>
+            <Stack direction="row" alignItems="center" spacing={1.25}>
               <Avatar
                 sx={{
-                  width: 42,
-                  height: 42,
+                  width: 34,
+                  height: 34,
                   background:
                     "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
                 }}
               >
-                <SchoolIcon />
+                <SchoolIcon sx={{ fontSize: 18 }} />
               </Avatar>
 
               <Box>
                 <Typography
                   sx={{
-                    fontSize: { xs: 15, sm: 17 },
+                    fontSize: { xs: 13.5, sm: 15 },
                     fontWeight: 800,
                     color: "#111827",
                     lineHeight: 1.2,
@@ -209,8 +209,8 @@ export default function DashboardPage() {
                 </Typography>
 
                 <Typography
-                  variant="caption"
                   sx={{
+                    fontSize: 11,
                     color: "#6b7280",
                     display: { xs: "none", sm: "block" },
                   }}
@@ -221,22 +221,22 @@ export default function DashboardPage() {
             </Stack>
 
             {/* User + Logout */}
-            <Stack direction="row" alignItems="center" spacing={1.5}>
+            <Stack direction="row" alignItems="center" spacing={1.25}>
               <Stack
                 direction="row"
                 alignItems="center"
-                spacing={1}
+                spacing={0.75}
                 sx={{
                   display: { xs: "none", sm: "flex" },
                 }}
               >
                 <Avatar
                   sx={{
-                    width: 34,
-                    height: 34,
+                    width: 28,
+                    height: 28,
                     bgcolor: "#eff6ff",
                     color: "#2563eb",
-                    fontSize: 14,
+                    fontSize: 12,
                     fontWeight: 700,
                   }}
                 >
@@ -246,9 +246,10 @@ export default function DashboardPage() {
                 <Box>
                   <Typography
                     sx={{
-                      fontSize: 13,
+                      fontSize: 12,
                       fontWeight: 700,
                       color: "#374151",
+                      lineHeight: 1.2,
                     }}
                   >
                     {session.email}
@@ -257,18 +258,18 @@ export default function DashboardPage() {
                   <Stack
                     direction="row"
                     alignItems="center"
-                    spacing={0.5}
+                    spacing={0.4}
                   >
                     <VerifiedUserIcon
                       sx={{
-                        fontSize: 13,
+                        fontSize: 11,
                         color: "#16a34a",
                       }}
                     />
 
                     <Typography
                       sx={{
-                        fontSize: 11,
+                        fontSize: 10,
                         color: "#16a34a",
                         fontWeight: 600,
                       }}
@@ -282,15 +283,17 @@ export default function DashboardPage() {
               <Button
                 variant="outlined"
                 size="small"
-                startIcon={<LogoutIcon />}
+                startIcon={<LogoutIcon sx={{ fontSize: 16 }} />}
                 onClick={logout}
                 sx={{
-                  borderRadius: 2,
+                  borderRadius: 1.5,
                   textTransform: "none",
                   fontWeight: 700,
+                  fontSize: 12,
+                  py: 0.5,
                   borderColor: "#d1d5db",
                   color: "#374151",
-                  minWidth: { xs: 40, sm: 90 },
+                  minWidth: { xs: 36, sm: 78 },
 
                   "&:hover": {
                     borderColor: "#dc2626",
@@ -317,18 +320,20 @@ export default function DashboardPage() {
         ===================================================== */}
         <Box
           sx={{
-            maxWidth: 850,
+            maxWidth: 720,
             mx: "auto",
             textAlign: "center",
-            mb: { xs: 4, md: 5 },
+            mb: { xs: 2.5, md: 3 },
           }}
         >
           <Chip
-            icon={<VerifiedUserIcon />}
+            icon={<VerifiedUserIcon sx={{ fontSize: 15 }} />}
             label="Secure Portal Access"
             size="small"
             sx={{
-              mb: 2,
+              mb: 1.25,
+              height: 24,
+              fontSize: 11,
               bgcolor: "#eff6ff",
               color: "#2563eb",
               border: "1px solid #dbeafe",
@@ -343,15 +348,15 @@ export default function DashboardPage() {
             component="h1"
             sx={{
               fontSize: {
-                xs: "28px",
-                sm: "36px",
-                md: "46px",
+                xs: "21px",
+                sm: "26px",
+                md: "32px",
               },
               lineHeight: 1.15,
               fontWeight: 900,
-              letterSpacing: "-1.5px",
+              letterSpacing: "-1px",
               color: "#111827",
-              mb: 1.5,
+              mb: 0.75,
             }}
           >
             Welcome back
@@ -374,9 +379,9 @@ export default function DashboardPage() {
           <Typography
             sx={{
               color: "#6b7280",
-              fontSize: { xs: 14, sm: 16 },
-              lineHeight: 1.7,
-              maxWidth: 650,
+              fontSize: { xs: 12.5, sm: 13.5 },
+              lineHeight: 1.6,
+              maxWidth: 560,
               mx: "auto",
             }}
           >
@@ -401,10 +406,10 @@ export default function DashboardPage() {
         {availableSystems.length > 0 ? (
           <Grid
             container
-            spacing={{ xs: 2, md: 3 }}
+            spacing={{ xs: 1.5, md: 2 }}
             justifyContent="center"
             sx={{
-              maxWidth: 1000,
+              maxWidth: 880,
               mx: "auto",
             }}
           >
@@ -419,15 +424,15 @@ export default function DashboardPage() {
                   elevation={0}
                   sx={{
                     height: "100%",
-                    p: { xs: 2.5, sm: 3.5 },
-                    borderRadius: 4,
+                    p: { xs: 2, sm: 2.5 },
+                    borderRadius: 3,
                     border: "1px solid #e5e7eb",
                     bgcolor: "#ffffff",
                     position: "relative",
                     overflow: "hidden",
                     cursor: "pointer",
                     transition:
-                      "transform .25s ease, box-shadow .25s ease, border-color .25s ease",
+                      "transform .2s ease, box-shadow .2s ease, border-color .2s ease",
 
                     "&::before": {
                       content: '""',
@@ -435,20 +440,20 @@ export default function DashboardPage() {
                       top: 0,
                       left: 0,
                       width: "100%",
-                      height: 4,
+                      height: 3,
                       bgcolor: system.accent,
                     },
 
                     "&:hover": {
-                      transform: "translateY(-6px)",
+                      transform: "translateY(-4px)",
                       borderColor: system.accent,
                       boxShadow:
-                        "0 18px 45px rgba(15,23,42,0.10)",
+                        "0 12px 30px rgba(15,23,42,0.10)",
                     },
                   }}
                   onClick={system.onClick}
                 >
-                  <Stack spacing={2.5}>
+                  <Stack spacing={1.5}>
                     {/* Icon */}
                     <Stack
                       direction="row"
@@ -458,11 +463,11 @@ export default function DashboardPage() {
                       <Avatar
                         variant="rounded"
                         sx={{
-                          width: 64,
-                          height: 64,
+                          width: 48,
+                          height: 48,
                           bgcolor: system.avatarBg,
                           color: system.avatarColor,
-                          borderRadius: 2.5,
+                          borderRadius: 2,
                         }}
                       >
                         {system.icon}
@@ -470,18 +475,17 @@ export default function DashboardPage() {
 
                       <Box
                         sx={{
-                          width: 36,
-                          height: 36,
+                          width: 28,
+                          height: 28,
                           borderRadius: "50%",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           bgcolor: "#f8fafc",
                           color: "#94a3b8",
-                          transition: ".2s",
                         }}
                       >
-                        <ArrowForwardIcon fontSize="small" />
+                        <ArrowForwardIcon sx={{ fontSize: 15 }} />
                       </Box>
                     </Stack>
 
@@ -489,10 +493,11 @@ export default function DashboardPage() {
                     <Box>
                       <Typography
                         sx={{
-                          fontSize: { xs: 20, sm: 22 },
+                          fontSize: { xs: 16, sm: 17.5 },
                           fontWeight: 800,
                           color: "#111827",
-                          mb: 0.5,
+                          mb: 0.25,
+                          lineHeight: 1.25,
                         }}
                       >
                         {system.title}
@@ -500,11 +505,11 @@ export default function DashboardPage() {
 
                       <Typography
                         sx={{
-                          fontSize: 12,
+                          fontSize: 10.5,
                           fontWeight: 700,
                           color: system.accent,
                           textTransform: "uppercase",
-                          letterSpacing: ".5px",
+                          letterSpacing: ".4px",
                         }}
                       >
                         {system.subtitle}
@@ -513,10 +518,10 @@ export default function DashboardPage() {
 
                     <Typography
                       sx={{
-                        fontSize: 14,
-                        lineHeight: 1.7,
+                        fontSize: 12.5,
+                        lineHeight: 1.55,
                         color: "#6b7280",
-                        minHeight: { sm: 72 },
+                        minHeight: { sm: 40 },
                       }}
                     >
                       {system.description}
@@ -527,17 +532,17 @@ export default function DashboardPage() {
                     <Button
                       fullWidth
                       variant="contained"
-                      endIcon={<ArrowForwardIcon />}
+                      endIcon={<ArrowForwardIcon sx={{ fontSize: 16 }} />}
                       onClick={(event) => {
                         event.stopPropagation();
                         system.onClick();
                       }}
                       sx={{
-                        py: 1.25,
-                        borderRadius: 2,
+                        py: 0.85,
+                        borderRadius: 1.75,
                         textTransform: "none",
                         fontWeight: 800,
-                        fontSize: 14,
+                        fontSize: 13,
                         bgcolor: system.accent,
                         boxShadow: "none",
 
@@ -562,40 +567,35 @@ export default function DashboardPage() {
           <Paper
             elevation={0}
             sx={{
-              maxWidth: 650,
+              maxWidth: 480,
               mx: "auto",
-              p: 5,
+              p: 3,
               textAlign: "center",
-              borderRadius: 4,
+              borderRadius: 3,
               border: "1px solid #e5e7eb",
               bgcolor: "#fff",
             }}
           >
             <Avatar
               sx={{
-                width: 64,
-                height: 64,
+                width: 48,
+                height: 48,
                 mx: "auto",
-                mb: 2,
+                mb: 1.5,
                 bgcolor: "#f3f4f6",
                 color: "#6b7280",
               }}
             >
-              <AssessmentIcon />
+              <AssessmentIcon sx={{ fontSize: 22 }} />
             </Avatar>
 
             <Typography
-              variant="h6"
-              fontWeight={800}
-              gutterBottom
+              sx={{ fontSize: 15, fontWeight: 800, mb: 0.5 }}
             >
               No system available
             </Typography>
 
-            <Typography
-              variant="body2"
-              color="text.secondary"
-            >
+            <Typography sx={{ fontSize: 12.5, color: "text.secondary" }}>
               You currently don't have access to any system.
               Please contact your administrator.
             </Typography>
@@ -608,12 +608,12 @@ export default function DashboardPage() {
         <Box
           sx={{
             textAlign: "center",
-            mt: { xs: 5, md: 7 },
+            mt: { xs: 3, md: 4 },
           }}
         >
           <Typography
             sx={{
-              fontSize: 12,
+              fontSize: 11,
               color: "#9ca3af",
             }}
           >
